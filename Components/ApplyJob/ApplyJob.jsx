@@ -1,29 +1,35 @@
+"use client"
 import React from 'react';
 import './ApplyJob.css'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useLoaderData, useParams } from 'next/link';
+import { useParams } from 'next/navigation';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { HiDocument, HiOutlineUpload } from "react-icons/hi";
 
-const ApplyJob = () => {
+const ApplyJob = ({jobs}) => {
   const { id } = useParams();
-  const jobsData = useLoaderData();
+  
+
+  const jobsData = jobs;
+  console.log(jobs,id)
   const [applyJobData, setApplyJobData] = useState([]);
   const [coverLetterOption, setCoverLetterOption] = useState('text')
   useEffect(() => {
     if (jobsData.length > 0) {
       const sortedJob = jobsData.find(job => job.id == id);
       setApplyJobData(sortedJob)
+
+      
     }
-  }, [])
+  }, [jobsData])
 
   const handleCoverLetter = (e) => {
     setCoverLetterOption(e);
   }
   console.log(coverLetterOption)
-  return (
+  return (applyJobData&&
     <div className='job-application-form'>
       <div className="job-application-form-content container">
         <div className="job-application-header">

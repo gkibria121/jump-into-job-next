@@ -25,7 +25,7 @@ const MyJobsApplied = () => {
                             </div>
                             <div className="saved-jobs-item-data-info applied-jobs-item-data-info">
                                 <p className='application-status'>Applied</p>
-                                <Link><h3>{appliedjob.job_title}</h3></Link>
+                                <Link href=""><h3>{appliedjob.job_title}</h3></Link>
                                 <p>{appliedjob.company_name}</p>
                                 <p>{appliedjob.address}</p>
                                 <span>Applied on Sep 5</span>

@@ -73,14 +73,14 @@ const ForEmployersLogin = () => {
                             <label htmlFor="rememberme">Remember me</label>
                         </div>
                         <div>
-                            <Link>Forget Password?</Link>
+                            <Link href="">Forget Password?</Link>
                         </div>
                     </div>
                     <div className="register-button">
                         <input type="submit" value="Login" />
                     </div>
                     <div className="register-to-login">
-                        <p>Already have an account? <Link to="/signin">Login</Link> Here</p>
+                        <p>Already have an account? <Link href="/signin">Login</Link> Here</p>
                     </div>
                 </form>
             </div>

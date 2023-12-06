@@ -84,7 +84,7 @@ const ForEmployersPostJob = () => {
 
                     </div>
                     <div className="terms-conditions">
-                        <p>By posting a job, you understand and agree to Job Portal's <Link to="/terms">Terms</Link>. You also acknowledge our <Link to="/cookie">Cookie</Link> and <Link to="/privacy">Privacy</Link> policies.</p>
+                        <p>By posting a job, you understand and agree to Job Portal's <Link href="/terms">Terms</Link>. You also acknowledge our <Link href="/cookie">Cookie</Link> and <Link href="/privacy">Privacy</Link> policies.</p>
                         <div>
                             <input type="checkbox" id="termscheck" required />
                             <label htmlFor="termscheck">I will agree company terms & conditions.</label>

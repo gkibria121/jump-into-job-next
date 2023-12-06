@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { HiOutlineEye, HiOutlineEyeOff, HiOutlineMail, HiOutlineUserCircle } from 'react-icons/hi';
 import  Link from 'next/link';
+
 import { useRouter } from 'next/navigation';
 import { useUserContext } from '../../UserContext/UserContext';
 import Swal from 'sweetalert2';
@@ -16,8 +17,9 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         const userLoginData = { 'email': userEmail, 'password': userPassword, 'remember_me': rememberUser };
-        console.log(userLoginData)
-        const loginData = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/job-seeker/login`, {
+        console.log(userLoginData,`${process.env.NEXT_PUBLIC_API_URL}/auth/user/login`)
+        const loginData = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/user/login`, {
+
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -36,7 +38,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
             })
-            navigate('/')
+            navigate.push('/')
         } else {
             console.log('Something is wrong', loginUserData)
             alert(loginUserData.message)

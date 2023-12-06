@@ -5,12 +5,15 @@ import { FaUpRightFromSquare } from "react-icons/fa6";
 import Link from 'next/link';
 import Swal from 'sweetalert2';
 import { useUserContext } from '../../UserContext/UserContext';
+import { useRouter } from 'next/navigation';
 
 const JobDetails = ({ props}) => {
-    const {id,jobs} = props;
+    console.log('from jobdetails')
+
+    const {jobs,id} = props;
     const [showJobDetails, setShowJobDetails] = useState({});
     const { userData } = useUserContext();
-    // const loginNavigate = useNavigate();
+    const loginNavigate = useRouter();
     useEffect(() => {
         if (jobs.length > 0) {
             const job = jobs.find(job => job.id == id);
@@ -36,7 +39,7 @@ const JobDetails = ({ props}) => {
                 confirmButtonText: 'Yes'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    loginNavigate('/signin')
+                    loginNavigate.push('/signin')
                 }
             })
         }

@@ -1,15 +1,19 @@
-'use client'
 import React from 'react';
 import AllJobs from '@/Components/AllJobs/AllJobs';
 
-function RootLayout({ children }) {
-  console.log('no render')
+export const metadata = {
+  title: 'This is findjobs',
+  description: '...',
+}
 
-  return (
+function RootLayout({ children }) {
+
+
+  return (<>
     <AllJobs>
-      {console.log('dont re render')}
         {children}
     </AllJobs>
+  </>
   );
 }
 

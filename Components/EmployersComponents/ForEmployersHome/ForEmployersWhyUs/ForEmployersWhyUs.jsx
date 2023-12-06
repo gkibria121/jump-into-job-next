@@ -38,9 +38,9 @@ const ForEmployersWhyUs = () => {
                     </div>
                     <div className="whyus-btn">
                         {userData ?
-                        <Link to="/foremployers/postjobs"><button>Post a Job <HiArrowSmRight></HiArrowSmRight></button></Link>
+                        <Link href="/foremployers/postjobs"><button>Post a Job <HiArrowSmRight></HiArrowSmRight></button></Link>
                         :
-                        <Link to="/foremployers/register"><button>Create Account <HiArrowSmRight></HiArrowSmRight></button></Link>
+                        <Link href="/foremployers/register"><button>Create Account <HiArrowSmRight></HiArrowSmRight></button></Link>
                         }
                     </div>
                 </div>

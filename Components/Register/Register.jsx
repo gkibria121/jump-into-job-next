@@ -126,7 +126,7 @@ return (
                     </div>
                 </div>
                 <div className="register-button">
-                    {/* <button onClick={handleRegistration}><Link>Sign Up</Link></button> */}
+                    {/* <button onClick={handleRegistration}><Link href="">Sign Up</Link></button> */}
                     <input type="submit" value="Sign Up" />
                 </div>
 

@@ -50,17 +50,17 @@ const ForEmployersHeader = () => {
                 </div>
                 <div className="header-menu">
                     <ul className="main-menu">
-                        <li><Link to="/foremployers" onClick={() => handleActiveMenu('home')} className={activeMenu === 'home' ? 'active' : ''}>Home</Link></li>
-                        <li><Link to="/foremployers/postjobs" onClick={() => handleActiveMenu('jobs')} className={activeMenu === 'postjobs' ? 'active' : ''}>Post Jobs </Link></li>
-                        <li><Link to="/candidates" onClick={() => handleActiveMenu('candidates')} className={activeMenu === 'candidates' ? 'active' : ''}>Candidates</Link></li>
-                        <li><Link to="/whyus" onClick={() => handleActiveMenu('whyus')} className={activeMenu === 'whyus' ? 'active' : ''}>Why Us <HiChevronDown></HiChevronDown></Link>
+                        <li><Link href="/foremployers" onClick={() => handleActiveMenu('home')} className={activeMenu === 'home' ? 'active' : ''}>Home</Link></li>
+                        <li><Link href="/foremployers/postjobs" onClick={() => handleActiveMenu('jobs')} className={activeMenu === 'postjobs' ? 'active' : ''}>Post Jobs </Link></li>
+                        <li><Link href="/candidates" onClick={() => handleActiveMenu('candidates')} className={activeMenu === 'candidates' ? 'active' : ''}>Candidates</Link></li>
+                        <li><Link href="/whyus" onClick={() => handleActiveMenu('whyus')} className={activeMenu === 'whyus' ? 'active' : ''}>Why Us <HiChevronDown></HiChevronDown></Link>
                             <ul className='dropdown-menu'>
-                                <li><Link>Dropdown Menu</Link></li>
-                                <li><Link>Dropdown Menu</Link></li>
-                                <li><Link>Dropdown Menu</Link></li>
+                                <li><Link href="">Dropdown Menu</Link></li>
+                                <li><Link href="">Dropdown Menu</Link></li>
+                                <li><Link href="">Dropdown Menu</Link></li>
                             </ul>
                         </li>
-                        <li><Link to="/">For Workers</Link></li>
+                        <li><Link href="/">For Workers</Link></li>
                     </ul>
                     <ul className="account-menu">
                         {
@@ -76,11 +76,11 @@ const ForEmployersHeader = () => {
                                                 <p>{userData?.data?.user.email}</p>
                                                 </div>
                                                 <div className="loggedin-user-options">
-                                                    <Link><FaUserTie></FaUserTie> Profile</Link>
-                                                    <Link><HiBookmark></HiBookmark> Saved Jobs</Link>
-                                                    <Link><HiBriefcase></HiBriefcase> Applied Jobs</Link>
-                                                    <Link><HiCog></HiCog> Settings</Link>
-                                                    <Link><HiQuestionMarkCircle></HiQuestionMarkCircle> Help Center</Link>
+                                                    <Link href=""><FaUserTie></FaUserTie> Profile</Link>
+                                                    <Link href=""><HiBookmark></HiBookmark> Saved Jobs</Link>
+                                                    <Link href=""><HiBriefcase></HiBriefcase> Applied Jobs</Link>
+                                                    <Link href=""><HiCog></HiCog> Settings</Link>
+                                                    <Link href=""><HiQuestionMarkCircle></HiQuestionMarkCircle> Help Center</Link>
                                                 </div>
                                                 <button className='signout-btn' onClick={handleLogout}>Sign Out <TbLogout></TbLogout></button>
                                             </div>
@@ -92,13 +92,13 @@ const ForEmployersHeader = () => {
                                 :
                                 userLoggedout?.result ?
                                     <>
-                                        <li><Link to="/foremployers/register" className='register-btn'><HiOutlineUserAdd />Register</Link></li>
-                                        <li><Link to="/foremployers/signin" className='login-btn'><HiOutlineUser />Sign In</Link></li>
+                                        <li><Link href="/foremployers/register" className='register-btn'><HiOutlineUserAdd />Register</Link></li>
+                                        <li><Link href="/foremployers/signin" className='login-btn'><HiOutlineUser />Sign In</Link></li>
                                     </>
                                     :
                                     <>
-                                        <li><Link to="/foremployers/register" className='register-btn'><HiOutlineUserAdd />Register</Link></li>
-                                        <li><Link to="/foremployers/signin" className='login-btn'><HiOutlineUser />Sign In</Link></li>
+                                        <li><Link href="/foremployers/register" className='register-btn'><HiOutlineUserAdd />Register</Link></li>
+                                        <li><Link href="/foremployers/signin" className='login-btn'><HiOutlineUser />Sign In</Link></li>
                                     </>
                         }
                     </ul>

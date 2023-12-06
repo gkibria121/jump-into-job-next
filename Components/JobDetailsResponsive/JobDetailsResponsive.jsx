@@ -1,17 +1,21 @@
+"use client"
 import React, { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRightArrowLeft, FaRegBookmark, FaUpRightFromSquare } from "react-icons/fa6";
 import { HiBookmark, HiBookmarkAlt, HiOutlineBookmark, HiOutlineBriefcase } from 'react-icons/hi';
-import { Link, useLoaderData, useNavigate, useParams } from 'next/link';
+import Link from 'next/link';
+
 import { useUserContext } from '../../UserContext/UserContext';
 import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
 
-const JobDetailsResponsive = () => {
+const JobDetailsResponsive = ({props}) => {
     const {userData} = useUserContext();
-    const {id} = useParams();
-    const jobs = useLoaderData();
-    const loginNavigate = useNavigate();
+    const {id,jobs} = props;
+    console.log(props)
+
+    const loginNavigate = useRouter();
     const [showJobDetails, setShowJobDetails] = useState({});
-    const navigate = useNavigate()
+    const navigate = useRouter()
     useEffect(() => {
         if(jobs.length > 0) {
             const job = jobs.find(job => job.id == id);
@@ -19,7 +23,7 @@ const JobDetailsResponsive = () => {
         }
     }, [id, jobs])
     const handleGoBackBtn = () => {
-        navigate(-1);
+        navigate.push(-1);
     }
 
     const handleApplyJob = () => {
@@ -39,7 +43,7 @@ const JobDetailsResponsive = () => {
                 confirmButtonText: 'Yes'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    loginNavigate('/signin')
+                    loginNavigate.push('/signin')
                 }
             })
         }
@@ -58,7 +62,7 @@ const JobDetailsResponsive = () => {
                         <div>
                         <h2>{showJobDetails.job_title}</h2>
                         <div className="job-details-header-company">
-                        <Link>{showJobDetails.company_name}</Link>
+                        <Link href="">{showJobDetails.company_name}</Link>
                         </div>
                         <p>{showJobDetails.address}</p>
                         </div>
@@ -77,9 +81,9 @@ const JobDetailsResponsive = () => {
                 </div>
 
                 <div className="job-details-res-buttons">
-                    <Link><button onClick={handleApplyJob} className='res-btn apply-btn'>Apply Now <FaUpRightFromSquare></FaUpRightFromSquare></button></Link>
+                    <Link href=""><button onClick={handleApplyJob} className='res-btn apply-btn'>Apply Now <FaUpRightFromSquare></FaUpRightFromSquare></button></Link>
                     <button className='res-btn bookmark-btn'><FaRegBookmark></FaRegBookmark> Bookmark this job</button>
-                    <Link to="/findjobs"><button className='res-btn more-jobs-btn'><HiOutlineBriefcase></HiOutlineBriefcase> See More Jobs</button></Link>
+                    <Link href="/findjobs"><button className='res-btn more-jobs-btn'><HiOutlineBriefcase></HiOutlineBriefcase> See More Jobs</button></Link>
                 </div>
             </div>
         </div>

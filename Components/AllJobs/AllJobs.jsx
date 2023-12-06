@@ -4,7 +4,7 @@ import  Link from 'next/link';
 
 import { HiOutlineBookmark, HiOutlineBriefcase, HiOutlineCursorClick, HiOutlineLocationMarker } from 'react-icons/hi';
 import { useMediaQuery } from '@uidotdev/usehooks';
-import { useUserContext } from '../../UserContext/UserContext';
+import { useUserContext } from '@/UserContext/UserContext';
 
 
 const AllJobs = ({children}) => {
@@ -106,8 +106,10 @@ const AllJobs = ({children}) => {
                     
                     {
                         (clickedFeaturedJob || clickedJob) ?
+                        <>
+                        {children}
+                        </>
                        
-                        children
                             :
                             <div className='default-job-details job-details'>
                                 <div className="default-job-details-img">

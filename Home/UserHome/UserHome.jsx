@@ -1,8 +1,9 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import './UserHome.css'
+
 import { useUserContext } from '../../UserContext/UserContext';
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from '@uidotdev/usehooks';
+
 import { HiMail, HiMap, HiOutlineBookmark, HiPhone } from 'react-icons/hi';
 import Link from 'next/link';
 import { FcBriefcase, FcBusinessman, FcCallback, FcFinePrint, FcOnlineSupport } from "react-icons/fc";
@@ -55,7 +56,8 @@ const UserHome = () => {
                     <h4>Featured Companies:</h4>
                     <div className='user-home-company'>
                         {
-                            featuredCompanies.slice(0, 3).map(company => <div key={company.id} className='company-item'>
+                            featuredCompanies.slice(0, 3).map(company => 
+                            <div key={company.id} className='company-item'>
                                 <div className="company-item-content">
                                     <div className="company-item-content-banner">
                                         <img src={company.company_banner} alt="" />
